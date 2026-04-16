@@ -1,0 +1,139 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  /* Kitty Studio brand tokens — Lancôme luxury theme */
+  --ks-gold:    #C4973D;
+  --ks-dark:    #1A1414;
+  --ks-bg:      #FFFCFD;
+  --ks-footer:  #110D0D;
+  --ks-text:    #1A1414;
+  --ks-muted:   #7A6A6A;
+
+  /* shadcn tokens */
+  --background: #FFFCFD;
+  --foreground: #1A1414;
+  --card: #FFFFFF;
+  --card-foreground: #1A1414;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1414;
+  --primary: #C4973D;
+  --primary-foreground: #1A1414;
+  --secondary: #ede8e4;
+  --secondary-foreground: #1A1414;
+  --muted: #ede8e4;
+  --muted-foreground: #7A6A6A;
+  --accent: #C4973D;
+  --accent-foreground: #1A1414;
+  --border: #ddd6d0;
+  --input: #ddd6d0;
+  --ring: #C4973D;
+  --radius: 0;
+  --sidebar: #FFFCFD;
+  --sidebar-foreground: #1A1414;
+  --sidebar-primary: #C4973D;
+  --sidebar-primary-foreground: #1A1414;
+  --sidebar-accent: #ede8e4;
+  --sidebar-accent-foreground: #1A1414;
+  --sidebar-border: #ddd6d0;
+  --sidebar-ring: #C4973D;
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body), system-ui, sans-serif;
+    color: #1A1414;
+    background-color: #FFFCFD;
+  }
+  html { scroll-behavior: smooth; }
+}
+
+/* Font utilities */
+.font-heading  { font-family: var(--font-heading), Georgia, serif; letter-spacing: 0.18em; }
+.font-display  { font-family: var(--font-heading), Georgia, serif; letter-spacing: 0.18em; }
+.font-body     { font-family: var(--font-body), system-ui, sans-serif; }
+
+@keyframes pulse-soft {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); }
+  50%       { box-shadow: 0 0 0 10px rgba(37,211,102,0); }
+}
+.pulse-whatsapp { animation: pulse-soft 2.5s ease-in-out infinite; }
+
+@keyframes ken-burns-a {
+  0%   { transform: scale(1)    translate(0%,   0%); }
+  100% { transform: scale(1.10) translate(-2%,  -1%); }
+}
+@keyframes ken-burns-b {
+  0%   { transform: scale(1.05) translate(-1%,  0%); }
+  100% { transform: scale(1)    translate(1%,   1%); }
+}
+@keyframes ken-burns-c {
+  0%   { transform: scale(1)    translate(1%,   0%); }
+  100% { transform: scale(1.08) translate(-1%,  -2%); }
+}
+.kb-a { animation: ken-burns-a 16s ease-in-out alternate infinite; }
+.kb-b { animation: ken-burns-b 18s ease-in-out alternate infinite; }
+.kb-c { animation: ken-burns-c 14s ease-in-out alternate infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ── OVERRIDE LANCÔME THEME ── */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading), 'Georgia', serif;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+[class*="tracking-widest"], [class*="tracking-wider"] {
+  color: #C4973D !important;
+  letter-spacing: 0.35em !important;
+  font-size: 0.65rem !important;
+  font-weight: 300 !important;
+}
+footer {
+  background-color: #110D0D !important;
+  border-top: 1px solid rgba(196,151,61,0.2) !important;
+}

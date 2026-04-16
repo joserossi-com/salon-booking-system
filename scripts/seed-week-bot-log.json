@@ -1,0 +1,290 @@
+[
+  {
+    "chatId": 88881001,
+    "nombre": "Valentina Rojas",
+    "servicio": "esmaltado",
+    "hora": "10:00",
+    "day": "2026-04-20",
+    "status": "ok",
+    "detail": "Nicole"
+  },
+  {
+    "chatId": 88881002,
+    "nombre": "Camila Soto",
+    "servicio": "manicura",
+    "hora": "11:00",
+    "day": "2026-04-20",
+    "status": "ok",
+    "detail": "Nicole"
+  },
+  {
+    "chatId": 88881003,
+    "nombre": "Francisca Muñoz",
+    "servicio": "depilación de cejas",
+    "hora": "12:00",
+    "day": "2026-04-20",
+    "status": "ok",
+    "detail": "Nicole"
+  },
+  {
+    "chatId": 88881004,
+    "nombre": "Isidora Pérez",
+    "servicio": "extensiones clásicas de pestañas",
+    "hora": "10:00",
+    "day": "2026-04-20",
+    "status": "ok",
+    "detail": "Kitty"
+  },
+  {
+    "chatId": 88881005,
+    "nombre": "Catalina Vega",
+    "servicio": "lifting de pestañas",
+    "hora": "14:00",
+    "day": "2026-04-20",
+    "status": "ok",
+    "detail": "Kitty"
+  },
+  {
+    "chatId": 88881006,
+    "nombre": "Javiera Castro",
+    "servicio": "masaje relajante",
+    "hora": "15:00",
+    "day": "2026-04-20",
+    "status": "ok",
+    "detail": "Constanza"
+  },
+  {
+    "chatId": 88881101,
+    "nombre": "Antonia Silva",
+    "servicio": "kapping",
+    "hora": "10:00",
+    "day": "2026-04-21",
+    "status": "ok",
+    "detail": "Nicole"
+  },
+  {
+    "chatId": 88881102,
+    "nombre": "Sofía Morales",
+    "servicio": "pedicura con esmaltado",
+    "hora": "14:00",
+    "day": "2026-04-21",
+    "status": "ok",
+    "detail": "Nicole"
+  },
+  {
+    "chatId": 88881103,
+    "nombre": "Martina López",
+    "servicio": "hawaianas",
+    "hora": "10:00",
+    "day": "2026-04-21",
+    "status": "ok",
+    "detail": "Kitty"
+  },
+  {
+    "chatId": 88881104,
+    "nombre": "Florencia Díaz",
+    "servicio": "perfilado de cejas",
+    "hora": "13:00",
+    "day": "2026-04-21",
+    "status": "ok",
+    "detail": "Kitty"
+  },
+  {
+    "chatId": 88881105,
+    "nombre": "Amanda Torres",
+    "servicio": "masaje con piedras calientes",
+    "hora": "10:00",
+    "day": "2026-04-21",
+    "status": "ok",
+    "detail": "Constanza"
+  },
+  {
+    "chatId": 88881106,
+    "nombre": "Constanza Herrera",
+    "servicio": "corte de cabello",
+    "hora": "12:00",
+    "day": "2026-04-21",
+    "status": "ok",
+    "detail": "Constanza"
+  },
+  {
+    "chatId": 88881201,
+    "nombre": "Macarena Fuentes",
+    "servicio": "soft gel",
+    "hora": "10:00",
+    "day": "2026-04-22",
+    "status": "ok",
+    "detail": "Nicole"
+  },
+  {
+    "chatId": 88881202,
+    "nombre": "Daniela Núñez",
+    "servicio": "depilación de piernas",
+    "hora": "15:00",
+    "day": "2026-04-22",
+    "status": "ok",
+    "detail": "Nicole"
+  },
+  {
+    "chatId": 88881203,
+    "nombre": "Fernanda Reyes",
+    "servicio": "extensiones wispy",
+    "hora": "10:00",
+    "day": "2026-04-22",
+    "status": "ok",
+    "detail": "Kitty"
+  },
+  {
+    "chatId": 88881204,
+    "nombre": "Gabriela Contreras",
+    "servicio": "laminado de cejas",
+    "hora": "14:00",
+    "day": "2026-04-22",
+    "status": "ok",
+    "detail": "Kitty"
+  },
+  {
+    "chatId": 88881205,
+    "nombre": "Josefa Vargas",
+    "servicio": "masaje relajante",
+    "hora": "16:00",
+    "day": "2026-04-22",
+    "status": "ok",
+    "detail": "Constanza"
+  },
+  {
+    "chatId": 88881301,
+    "nombre": "Emilia Espinoza",
+    "servicio": "esmaltado",
+    "hora": "10:00",
+    "day": "2026-04-23",
+    "status": "ok",
+    "detail": "Nicole"
+  },
+  {
+    "chatId": 88881302,
+    "nombre": "Agustina Bravo",
+    "servicio": "polygel con tips",
+    "hora": "11:00",
+    "day": "2026-04-23",
+    "status": "ok",
+    "detail": "Nicole"
+  },
+  {
+    "chatId": 88881303,
+    "nombre": "Paula Guzmán",
+    "servicio": "limpieza facial",
+    "hora": "10:00",
+    "day": "2026-04-23",
+    "status": "ok",
+    "detail": "Kitty"
+  },
+  {
+    "chatId": 88881304,
+    "nombre": "Trinidad Araya",
+    "servicio": "perfilado de cejas",
+    "hora": "15:00",
+    "day": "2026-04-23",
+    "status": "ok",
+    "detail": "Kitty"
+  },
+  {
+    "chatId": 88881305,
+    "nombre": "Ignacia Navarro",
+    "servicio": "corte de cabello",
+    "hora": "14:00",
+    "day": "2026-04-23",
+    "status": "ok",
+    "detail": "Constanza"
+  },
+  {
+    "chatId": 88881401,
+    "nombre": "Renata Figueroa",
+    "servicio": "acrílicas con tips",
+    "hora": "10:00",
+    "day": "2026-04-24",
+    "status": "ok",
+    "detail": "Nicole"
+  },
+  {
+    "chatId": 88881402,
+    "nombre": "Belén Ortiz",
+    "servicio": "depilación de axilas",
+    "hora": "16:00",
+    "day": "2026-04-24",
+    "status": "ok",
+    "detail": "Nicole"
+  },
+  {
+    "chatId": 88881403,
+    "nombre": "Monserrat Parra",
+    "servicio": "hawaianas",
+    "hora": "10:00",
+    "day": "2026-04-24",
+    "status": "ok",
+    "detail": "Kitty"
+  },
+  {
+    "chatId": 88881404,
+    "nombre": "Amparo Campos",
+    "servicio": "lifting de pestañas",
+    "hora": "14:00",
+    "day": "2026-04-24",
+    "status": "ok",
+    "detail": "Kitty"
+  },
+  {
+    "chatId": 88881405,
+    "nombre": "Magdalena Riquelme",
+    "servicio": "masaje con piedras calientes",
+    "hora": "10:00",
+    "day": "2026-04-24",
+    "status": "ok",
+    "detail": "Constanza"
+  },
+  {
+    "chatId": 88881501,
+    "nombre": "Rocío Tapia",
+    "servicio": "esmaltado",
+    "hora": "10:00",
+    "day": "2026-04-25",
+    "status": "ok",
+    "detail": "Nicole"
+  },
+  {
+    "chatId": 88881502,
+    "nombre": "Victoria Sandoval",
+    "servicio": "depilación rostro completo",
+    "hora": "13:00",
+    "day": "2026-04-25",
+    "status": "ok",
+    "detail": "Nicole"
+  },
+  {
+    "chatId": 88881503,
+    "nombre": "Isabella Sepúlveda",
+    "servicio": "extensiones clásicas de pestañas",
+    "hora": "10:00",
+    "day": "2026-04-25",
+    "status": "ok",
+    "detail": "Kitty"
+  },
+  {
+    "chatId": 88881504,
+    "nombre": "Julieta Vergara",
+    "servicio": "laminado de cejas",
+    "hora": "14:00",
+    "day": "2026-04-25",
+    "status": "ok",
+    "detail": "Kitty"
+  },
+  {
+    "chatId": 88881505,
+    "nombre": "Luciana Aravena",
+    "servicio": "masaje relajante",
+    "hora": "12:00",
+    "day": "2026-04-25",
+    "status": "ok",
+    "detail": "Constanza"
+  }
+]
