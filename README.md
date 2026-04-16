@@ -27,7 +27,10 @@ A full-stack digitalization project for a beauty salon — replacing manual What
 ## Features
 
 **Online Booking via AI Agent**
-Customers interact with a Telegram bot powered by Claude Haiku. The agent collects name, phone, service, and preferred time — then creates the appointment directly in the database. Includes conversation history, rate limiting (30 msg/hr per user), and prompt injection protection.
+Customers interact with a Telegram bot powered by Claude Haiku. The agent collects name, phone, service, and preferred time — then creates the appointment in both Supabase and Google Calendar simultaneously. Includes conversation history, rate limiting (30 msg/hr per user), and prompt injection protection.
+
+**Google Calendar Integration**
+Each worker has a dedicated Google Calendar. When a booking is confirmed, the bot creates the event in the corresponding worker's calendar via the Google Calendar API (service account). Before confirming any appointment, the bot checks the worker's calendar for conflicts, enabling real-time availability verification. Customers can also ask the bot to cancel or reschedule an existing appointment — the bot deletes or updates the calendar event accordingly.
 
 **Centralized Appointment System**
 Appointments stored in Supabase with full conflict detection. Each service has a duration, so the system validates start + duration against business hours (Mon–Sat, 10:00–19:00) before confirming.
@@ -69,11 +72,17 @@ Telegram Bot API ──► POST /api/webhook/telegram
            Conversational          Services
              reasoning            Workers
                     │              Appointments
-                    └──► [BOOKING] ──► POST /api/appointments
-                                              │
-                                       Supabase DB
-                                    (conflict check +
-                                      insert cita)
+                    │              Conversations
+                    └──► [BOOKING] / [CANCEL] / [MODIFY]
+                                    │
+                          POST /api/appointments
+                                    │
+                         ┌──────────┴──────────┐
+                         │                     │
+                    Supabase DB        Google Calendar API
+                  (conflict check +   (per-worker calendars)
+                   insert/update/      create / delete /
+                   delete cita)        update event
 
 Web Client (Browser)
        │
@@ -139,7 +148,6 @@ supabase/seed.sql
 After starting the dev server or deploying to Vercel:
 
 ```bash
-# Set the webhook (replace with your URL and secret)
 curl "https://api.telegram.org/bot<TOKEN>/setWebhook" \
   -d "url=https://your-domain.vercel.app/api/webhook/telegram" \
   -d "secret_token=YOUR_WEBHOOK_SECRET"
@@ -159,19 +167,19 @@ Open [http://localhost:3000](http://localhost:3000).
 
 | Variable | Description |
 |---|---|
-| `NEXT_PUBLIC_BASE_URL` | Your deployment URL (e.g. `https://your-project.vercel.app`) |
+| `NEXT_PUBLIC_BASE_URL` | Your deployment URL |
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon key (public) |
-| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key (private — server only) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key (server only) |
 | `TELEGRAM_BOT_TOKEN` | Bot token from @BotFather |
-| `TELEGRAM_WEBHOOK_SECRET` | Random secret to verify Telegram webhook requests |
+| `TELEGRAM_WEBHOOK_SECRET` | Secret to verify webhook requests |
 | `ANTHROPIC_API_KEY` | Anthropic API key for Claude |
 | `BOT_API_KEY` | Internal API key for bot→server communication |
 | `UPSTASH_REDIS_REST_URL` | Upstash Redis REST endpoint |
 | `UPSTASH_REDIS_REST_TOKEN` | Upstash Redis auth token |
-| `GOOGLE_SERVICE_ACCOUNT_EMAIL` | Google service account (optional, for Calendar) |
-| `GOOGLE_PRIVATE_KEY` | Google service account private key (optional) |
-| `GOOGLE_CALENDAR_ID` | Google Calendar ID (optional) |
+| `GOOGLE_SERVICE_ACCOUNT_EMAIL` | Google service account for Calendar |
+| `GOOGLE_PRIVATE_KEY` | Google service account private key |
+| `GOOGLE_CALENDAR_ID` | Google Calendar ID (per worker) |
 | `ADMIN_PASSWORD` | Password for the admin dashboard |
 | `ADMIN_SESSION_SECRET` | Session signing secret |
 
@@ -184,7 +192,7 @@ site/
 ├── src/
 │   ├── app/
 │   │   ├── api/
-│   │   │   ├── appointments/      # REST endpoint: create/list appointments
+│   │   │   ├── appointments/      # REST endpoint: create/list/update appointments
 │   │   │   ├── calendar/          # Google Calendar sync
 │   │   │   ├── services/          # Services CRUD
 │   │   │   ├── workers/           # Workers CRUD
@@ -194,7 +202,7 @@ site/
 │   │   ├── equipo/                # Team page
 │   │   ├── precios/               # Pricing page
 │   │   └── page.tsx               # Landing page
-│   ├── components/                # React components (UI + business)
+│   ├── components/                # React components
 │   └── lib/
 │       ├── supabase.ts            # Supabase client helpers
 │       ├── google-calendar.ts     # Google Calendar integration
@@ -206,8 +214,7 @@ site/
 │   ├── schema.sql                 # Full database schema
 │   ├── seed.sql                   # Example data
 │   └── add_google_calendar.sql    # Migration: calendar fields
-├── public/
-│   └── images/                    # Service portfolio images
+├── public/images/                 # Service portfolio images
 ├── .env.example                   # Environment variable template
 ├── next.config.ts
 └── package.json
@@ -230,12 +237,12 @@ conversaciones        Telegram chat history (for AI context window)
 
 ## Security Notes
 
-- All `.env*` files are excluded via `.gitignore` — never commit secrets
-- Telegram webhooks are verified with a `secret_token` header
-- User input is sanitized and validated with Zod before any DB write
+- All `.env*` files excluded via `.gitignore` — secrets never committed
+- Telegram webhooks verified with a `secret_token` header
+- User input sanitized and validated with Zod before any DB write
 - Rate limiting prevents abuse (30 messages/hour per Telegram user)
-- Service role key is only used server-side (never exposed to the browser)
-- Prompt injection attempts are handled at the system prompt level
+- Service role key only used server-side, never exposed to the browser
+- Prompt injection attempts handled at the system prompt level
 
 ---
 
